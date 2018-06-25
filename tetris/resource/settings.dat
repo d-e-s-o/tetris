@@ -1,0 +1,14 @@
+int   | StartLevel             | 1      | value > 0    | the level the game starts at
+int   | LinesForLevel          | 10     | value > 0    | lines required to level up
+int   | FieldWidth             | 10     | value > 0    | width of the tetris field
+int   | FieldHeight            | 20     | value > 0    | height of the tetris field
+int   | PreviewStoneCount      | 1      | value > 0    | amount of upcoming stones to show
+int   | WindowX                | 100    | true         | x position of the window
+int   | WindowY                | 100    | true         | y position of the window
+int   | WindowWidth            | 800    | value > 0    | width of the window
+int   | WindowHeight           | 600    | value > 0    | height of the window
+bool  | AutoPlay               | false  | true         | use auto playing AI
+bool  | Fullscreen             | false  | true         | use fullscreen or window mode
+bool  | KeyboardNative         | true   | true         | use native keyboard settings
+float | KeyboardRepeatDelay    | 0.1f   | value > 0.0f | custom keyboard repeat delay in seconds
+float | KeyboardRepeatInterval | 0.045f | value > 0.0f | custom keyboard repeat interval in seconds

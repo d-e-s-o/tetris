@@ -1,0 +1,4 @@
+build/**/*.d
+build/**/*.o
+build/**/*.a
+build/**/.dir

@@ -1,0 +1,45 @@
+# Makefile_attributes
+
+#/***************************************************************************
+# *   Copyright (C) 2012 Daniel Mueller (deso@posteo.net)                   *
+# *                                                                         *
+# *   This program is free software: you can redistribute it and/or modify  *
+# *   it under the terms of the GNU General Public License as published by  *
+# *   the Free Software Foundation, either version 3 of the License, or     *
+# *   (at your option) any later version.                                   *
+# *                                                                         *
+# *   This program is distributed in the hope that it will be useful,       *
+# *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+# *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+# *   GNU General Public License for more details.                          *
+# *                                                                         *
+# *   You should have received a copy of the GNU General Public License     *
+# *   along with this program.  If not, see <http://www.gnu.org/licenses/>. *
+# ***************************************************************************/
+
+MAKE_DIR ?= ../../../make
+CONF_DIR ?= .
+
+TARGETS_ATR_H = Settings.hpp
+
+
+#/**
+# * Settings.hpp
+# */
+DEPENDENCIES_Settings.hpp = $(TARGET_DIR_Settings.hpp)/../../resource/settings.dat
+FIXED_DIR_Settings.hpp    = $(TARGET_DIR_Settings.hpp)/../../resource/
+
+TYPES_TRG += ATR_H
+
+ATR2HPP = perl $(TARGET_DIR_Settings.hpp)/../../resource/make_settings.pl
+MSG_ATR2HPP = $(if $(Q),,$(if $(V),@$(ECHO) "  ATR2HPP    "$@))
+
+
+define dfn_target_rule_ATR_H
+  $1: $3 $4 $$(dfn_dir_marker)
+	$$(MSG_ATR2HPP)
+	$$(V) $$(ATR2HPP) $4 $1 $$(S)
+endef
+
+
+include $(MAKE_DIR)/make.mk

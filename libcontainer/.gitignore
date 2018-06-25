@@ -1,0 +1,4 @@
+build/**/*.d
+build/**/*.o
+build/**/.dir
+build/gmake/libcontainer_test
