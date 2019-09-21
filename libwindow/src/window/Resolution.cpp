@@ -1,7 +1,7 @@
 // Resolution.cpp
 
 /***************************************************************************
- *   Copyright (C) 2006-2012,2014 Daniel Mueller (deso@posteo.net)         *
+ *   Copyright (C) 2006-2012,2014,2019 Daniel Mueller (deso@posteo.net)    *
  *                                                                         *
  *   This program is free software: you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -83,10 +83,10 @@ namespace wnd
     int         r1 = lhs.refreshRate();
     int         r2 = rhs.refreshRate();
 
-    return w1 < w2 ||
-           w1 == w2 && h1 < h2 ||
-           w1 == w2 && h1 == h2 && c1 < c2 ||
-           w1 == w2 && h1 == h2 && c1 == c2 && r1 < r2;
+    return (w1 < w2) ||
+           (w1 == w2 && h1 < h2) ||
+           (w1 == w2 && h1 == h2 && c1 < c2) ||
+           (w1 == w2 && h1 == h2 && c1 == c2 && r1 < r2);
   }
 
   /**

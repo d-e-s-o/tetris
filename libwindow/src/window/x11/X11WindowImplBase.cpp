@@ -1,7 +1,7 @@
 // X11WindowImplBase.cpp
 
 /***************************************************************************
- *   Copyright (C) 2006-2012,2014 Daniel Mueller (deso@posteo.net)         *
+ *   Copyright (C) 2006-2012,2014,2019 Daniel Mueller (deso@posteo.net)    *
  *                                                                         *
  *   This program is free software: you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -77,13 +77,13 @@ namespace wnd
     {
       int key = MOD_KEY_NONE;
 
-      if (key_event.state & ShiftMask == ShiftMask)
+      if ((key_event.state & ShiftMask) == ShiftMask)
         key |= MOD_KEY_LSHIFT | MOD_KEY_RSHIFT;
 
-      if (key_event.state & LockMask == LockMask)
+      if ((key_event.state & LockMask) == LockMask)
         key |= MOD_KEY_CAPS;
 
-      if (key_event.state & ControlMask == ControlMask)
+      if ((key_event.state & ControlMask) == ControlMask)
         key |= MOD_KEY_LCTRL | MOD_KEY_RCTRL;
 
       return static_cast<ModifierKey>(key);
