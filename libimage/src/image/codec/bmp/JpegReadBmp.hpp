@@ -1,7 +1,7 @@
 // JpegReadBmp.hpp
 
 /***************************************************************************
- *   Copyright (C) 2006-2012 Daniel Mueller (deso@posteo.net)              *
+ *   Copyright (C) 2006-2012,2019 Daniel Mueller (deso@posteo.net)         *
  *                                                                         *
  *   This program is free software: you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -17,7 +17,7 @@
  *   along with this program.  If not, see <http://www.gnu.org/licenses/>. *
  ***************************************************************************/
 
-#include <stdio.h>
+#include <cstdio>
 #include <jpeglib.h>
 
 

@@ -38,9 +38,9 @@ namespace img
   namespace
   {
     /**
-     * This function is used as callback by libjpeg. It is called in case of an
-     * critical error, which leads to abort decompression. It throws an error
-     * exception with the given error message.
+     * This function is used as callback by libjpeg. It is called in
+     * case of an critical error, which leads to abort decompression. It
+     * throws an error exception with the given error message.
      * @param[in] cinfo jpeg structure for storing different information
      */
     void errorExit(j_common_ptr cinfo)
@@ -56,8 +56,10 @@ namespace img
     }
 
     /**
-     * @param[in] decompress jpeg decompress structure ready to start reading data
-     * @param[out] data pixel data that will be created and stored in there
+     * @param[in] decompress jpeg decompress structure ready to start
+     *            reading data
+     * @param[out] data pixel data that will be created and stored in
+     *             there
      * @return true on success, false otherwise
      */
     template<typename PixelT>
@@ -70,10 +72,10 @@ namespace img
       ASSERTOP(line, eq, 0);
 
       // now start reading the scanlines
-      // if speed is an issue it would be possible to create 2D vector and read
-      // multiple scanlines at once (not sure if its actually faster)
-      // but in my tests only one scanline (maybe two) were read at one, no
-      // matter what jpeg_read_scanlines's last parameter was
+      // if speed is an issue it would be possible to create 2D vector
+      // and read multiple scanlines at once (not sure if its actually
+      // faster) but in my tests only one scanline (maybe two) were read
+      // at one, no matter what jpeg_read_scanlines's last parameter was
       while (line < height)
       {
         JSAMPROW scanline = reinterpret_cast<JSAMPROW>(image->scanline(line));
@@ -138,8 +140,8 @@ namespace img
 
     jpeg_stream_src(&decompress, stream);
 
-    // create struct for storing error information and set it to default behavior but overwrite the
-    // default callback for critical errors
+    // create struct for storing error information and set it to default
+    // behavior but overwrite the default callback for critical errors
     jpeg_error_mgr error = {};
     decompress.err = jpeg_std_error(&error);
     error.error_exit = &errorExit;

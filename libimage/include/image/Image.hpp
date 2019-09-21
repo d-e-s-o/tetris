@@ -42,8 +42,8 @@ namespace img
    *       yet and the implementation would be some more time consuming
    * @todo add method for scaling (with bilinear filtering p.ex.)
    * @todo add support for palettes
-   * @todo if width OR height is zero there should be no additional memory used and all methods
-   *       have to act as expected
+   * @todo if width OR height is zero there should be no additional
+   *       memory used and all methods have to act as expected
    */
   template<typename PixelT>
   class Image: public ImageBase
@@ -103,8 +103,9 @@ namespace img
    * The constructor creates a new empty image with the given specification.
    * @param width number of pixels the image has in horizontal direction
    * @param height number of pixels the image has in vertical direction
-   * @param alignment bytenumber to which scanlines are aligned to (p.ex 4 means a scanline always
-   *        starts at an address that is divisible by 4)
+   * @param alignment bytenumber to which scanlines are aligned to (e.g.,
+   *        4 means a scanline always starts at an address that is
+   *        divisible by 4)
    */
   template<typename PixelT>
   Image<PixelT>::Image(size_t width, size_t height, size_t alignment)
@@ -118,8 +119,9 @@ namespace img
 
   /**
    * The constructor creates a new image by creating a copy of an existing one.
-   * @note this "copy"-constructor is only called, if the template parameters PixelT and Pixel2T are
-   *       not equal; otherwise the compiler generated copy-ctor is used
+   * @note this "copy"-constructor is only called, if the template
+   *       parameters PixelT and Pixel2T are not equal; otherwise the
+   *       compiler generated copy-ctor is used
    */
   template<typename PixelT>
   template<typename Pixel2T>
@@ -163,8 +165,9 @@ namespace img
   }
 
   /**
-   * This method is used to resize the image. Because there are different filter algorithms for
-   * resizing raster graphics it is supplied by the user.
+   * This method is used to resize the image. Because there are
+   * different filter algorithms for resizing raster graphics it is
+   * supplied by the user.
    * @param[in] width new width of the image
    * @param[in] height new height of the image
    * @param[in] filter object used to do actual scaling
@@ -246,8 +249,8 @@ namespace img
 
   /**
    * This helper method sets the array to values it would have gotten by
-   * default-construction of PixelT (it did not because it consists of bytes
-   * not PixelT, because otherwise we could not handle alignment).
+   * default-construction of PixelT (it did not because it consists of
+   * bytes not PixelT, because otherwise we could not handle alignment).
    */
   template<typename PixelT>
   void Image<PixelT>::initialize()
@@ -267,8 +270,9 @@ namespace img
   {
     if (width_ > 0 && height_ > 0)
     {
-      // we cannot tell now what alignment the memory in the vector will have so we need to allocate
-      // enough so that it can store the image no matter what the actual alignment is
+      // we cannot tell now what alignment the memory in the vector will
+      // have so we need to allocate enough so that it can store the
+      // image no matter what the actual alignment is
       ctr::resize(bytes_, alignment_ + entireLineBytes(*this) * height_, byte_t());
     }
   }
@@ -287,9 +291,10 @@ namespace img
   }
 
   /**
-   * Specialization for bitmaps. In case of a bitmap the calculation of the
-   * used bytes is different, because width() would specifiy bits (actually
-   * still pixels, but a pixel is represented by a single bit).
+   * Specialization for bitmaps. In case of a bitmap the calculation of
+   * the used bytes is different, because width() would specify bits
+   * (actually still pixels, but a pixel is represented by a single
+   * bit).
    */
   template<>
   inline size_t usedLineBytes(Image<PixelBitmap> const& image)
@@ -298,8 +303,8 @@ namespace img
   }
 
   /**
-   * This function calculates the number of bytes one scanline of the image has
-   * including padding bytes.
+   * This function calculates the number of bytes one scanline of the
+   * image has including padding bytes.
    * @param image image to calculate scanline size from
    * @return number of bytes a scanline has or 0 if image has no width
    */
@@ -322,12 +327,12 @@ namespace img
   {
     Image<PixelT> const& img = image;
     ctr::Array<PixelT const*> pixel = get2DData(img);
-    return *reinterpret_cast< ctr::Array<PixelT*>* >(&pixel);
+    return *reinterpret_cast<ctr::Array<PixelT*>*>(&pixel);
   }
 
   /**
-   * This function creates an two dimensional array with the pixel data. Each
-   * element in the vector is a scanline.
+   * This function creates an two dimensional array with the pixel data.
+   * Each element in the vector is a scanline.
    * @param image image to create 2D data from
    * @return vector with 2D data for the image
    */
@@ -348,8 +353,8 @@ namespace img
   }
 
   /**
-   * This function can be used to flip the contents of the image on a virtual
-   * vertical axis at half height.
+   * This function can be used to flip the contents of the image on a
+   * virtual vertical axis at half height.
    */
   template<typename PixelT>
   void flipHorizontal(Image<PixelT>& image)

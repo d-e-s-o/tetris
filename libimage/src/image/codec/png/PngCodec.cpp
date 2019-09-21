@@ -1,7 +1,7 @@
 // PngCodec.cpp
 
 /***************************************************************************
- *   Copyright (C) 2006-2012,2014 Daniel Mueller (deso@posteo.net)         *
+ *   Copyright (C) 2006-2012,2014,2019 Daniel Mueller (deso@posteo.net)    *
  *                                                                         *
  *   This program is free software: you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -34,8 +34,8 @@ namespace img
   namespace
   {
     /**
-     * This function is used as callback funtion for reading data from a stream into the supplied
-     * buffer.
+     * This function is used as callback function for reading data from a
+     * stream into the supplied buffer.
      * @param[in] png_ptr pointer to png structure with stream data
      * @param[out] buffer buffer to fill with data
      * @param[in] size size of buffer
@@ -49,8 +49,8 @@ namespace img
     }
 
     /**
-    * This is a callback function for libpng. It is called whenever an error occured. In that case
-    * an exception is thrown.
+    * This is a callback function for libpng. It is called whenever an
+    * error occurred. In that case an exception is thrown.
     * @param[in] png_ptr pointer to png structure (ignored, but needed in
     *            interface)
     * @param[in] message error message string
@@ -86,7 +86,7 @@ namespace img
      * @param[in] png png structure
      * @param[in] info png info structure
      * @return pointer to created image (has to be free'd with delete) or 0 if
-     *         an error occured
+     *         an error occurred
      */
     ImageBase* createImage(png_struct& png, png_info& info)
     {
@@ -129,7 +129,7 @@ namespace img
     /**
      * @param[in] png png structure
      * @param{in] info png info structure
-     * @return pointer to created image (has to be free'd with delete) or 0 if an error occured
+     * @return pointer to created image (has to be free'd with delete) or 0 if an error occurred
      */
     ImageBase* readData(png_struct& png, png_info& info)
     {
@@ -198,7 +198,7 @@ namespace img
     stream.read(buffer, PNG_BYTES_TO_CHECK);
     stream.reposition(position);
 
-    return png_check_sig(buffer, PNG_BYTES_TO_CHECK) != 0;
+    return png_sig_cmp(buffer, 0, PNG_BYTES_TO_CHECK) == 0;
   }
 
   /**

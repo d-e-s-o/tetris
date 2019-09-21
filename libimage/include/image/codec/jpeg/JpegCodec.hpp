@@ -1,7 +1,7 @@
 // JpegCodec.hpp
 
 /***************************************************************************
- *   Copyright (C) 2006-2012 Daniel Mueller (deso@posteo.net)              *
+ *   Copyright (C) 2006-2012,2019 Daniel Mueller (deso@posteo.net)         *
  *                                                                         *
  *   This program is free software: you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -32,7 +32,7 @@ namespace img
   class LIBIMAGE_EXPORT JpegCodec: public CodecBase
   {
   public:
-    virtual ImageBase* decode(Stream& stream) const;
+    virtual ImageBase* decode(Stream& stream) const override;
     virtual bool isForData(Stream& stream) const override;
 
     virtual CodecBase* duplicate() const override;

@@ -1,7 +1,7 @@
 // PngCodec.hpp
 
 /***************************************************************************
- *   Copyright (C) 2006-2012 Daniel Mueller (deso@posteo.net)              *
+ *   Copyright (C) 2006-2012,2019 Daniel Mueller (deso@posteo.net)         *
  *                                                                         *
  *   This program is free software: you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -26,13 +26,13 @@
 namespace img
 {
   /**
-   * This class represents the png codec. It directly uses libpng, with which it is possible to
-   * decode png files.
+   * This class represents the png codec. It directly uses libpng, with
+   * which it is possible to decode png files.
    */
   class LIBIMAGE_EXPORT PngCodec: public CodecBase
   {
   public:
-    virtual ImageBase* decode(Stream& stream) const;
+    virtual ImageBase* decode(Stream& stream) const override;
     virtual bool isForData(Stream& stream) const override;
 
     virtual CodecBase* duplicate() const override;

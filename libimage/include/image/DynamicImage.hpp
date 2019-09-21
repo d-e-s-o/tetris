@@ -77,7 +77,7 @@ namespace img
   Image<PixelT>& DynamicImage::as()
   {
     DynamicImage const& image = *this;
-    return const_cast< Image<PixelT>& >(image.As<PixelT>());
+    return const_cast<Image<PixelT>&>(image.As<PixelT>());
   }
 
   template<typename PixelT>
@@ -86,7 +86,7 @@ namespace img
     if (type_ != Image<PixelT>::type())
       throw Error(TEXT("Error converting image"), TEXT("Static and dynamic type do not match"));
 
-    return *static_cast< Image<PixelT> const* >(image_);
+    return *static_cast<Image<PixelT> const*>(image_);
   }
 
   inline unsigned int DynamicImage::type() const

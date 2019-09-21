@@ -28,19 +28,21 @@
 namespace img
 {
   /**
-   * This class represents the bilinear filtering method. It first calculates the exact position of
-   * a point thats colour should be taken (by linear interpolation) and then takes the closest four
-   * pixels to this point and calculates the average color (it is a bit more, but too complicated to
-   * explain...at least with my English skills :P).
-   * @todo in case of shrink_src_ true there may be a bug, because the most right line still looks a
-   *       bit different in some images (however only CalculateAllValues is called...)
-   * @todo it seems, like I cannot export this class if it has a constructor (linker error if it is
-   *       inline, warning if not). Find out why!  (same goes for NearestNeighbour...)
+   * This class represents the bilinear filtering method. It first
+   * calculates the exact position of a point thats color should be
+   * taken (by linear interpolation) and then takes the closest four
+   * pixels to this point and calculates the average color.
+   * @todo in case of shrink_src_ true there may be a bug, because the
+   *       most right line still looks a bit different in some images
+   *       (however only CalculateAllValues is called...)
+   * @todo it seems, like I cannot export this class if it has a
+   *       constructor (linker error if it is inline, warning if not).
+   *       Find out why!  (same goes for NearestNeighbour...)
    */
   class Bilinear
   {
   public:
-    bilinear(bool shrink_src = false);
+    Bilinear(bool shrink_src = false);
 
     template<typename PixelT>
     void operator ()(Image<PixelT> const& src, Image<PixelT>& dst) const;
@@ -69,11 +71,11 @@ namespace img
 namespace img
 {
   /**
-   * @param shrink_src on true the source image will be treated as if it was
-   *        one line smaller and lower. This can lead to better results with
-   *        special images.
+   * @param shrink_src on true the source image will be treated as if it
+   *        was one line smaller and lower. This can lead to better
+   *        results with special images.
    */
-  inline Bilinear::bilinear(bool shrink_src)
+  inline Bilinear::Bilinear(bool shrink_src)
     : shrink_src_(shrink_src)
   {
   }
@@ -106,8 +108,8 @@ namespace img
   }
 
   /**
-   * This method calculates the average color of a pixel by taking the colors
-   * of the three neighbours.
+   * This method calculates the average color of a pixel by taking the
+   * colors of the three neighbors.
    * @param src image to calculate average pixel color from
    * @param x x position of first pixel
    * @param y y position of first pixel
