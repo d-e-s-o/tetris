@@ -1,7 +1,7 @@
 // State.cpp
 
 /***************************************************************************
- *   Copyright (C) 2013-2014 Daniel Mueller (deso@posteo.net)              *
+ *   Copyright (C) 2013-2014,2019 Daniel Mueller (deso@posteo.net)         *
  *                                                                         *
  *   This program is free software: you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -49,6 +49,7 @@ namespace ttrs
         case Action::MOVE_RIGHT:   return 2;
         case Action::ROTATE_LEFT:  return 1;
         case Action::ROTATE_RIGHT: return 1;
+        default: break;
         }
         ASSERT(false);
         return -1;
