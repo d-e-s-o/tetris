@@ -1,7 +1,7 @@
 // Parser.cpp
 
 /***************************************************************************
- *   Copyright (C) 2012,2014 Daniel Mueller (deso@posteo.net)              *
+ *   Copyright (C) 2012,2014,2019 Daniel Mueller (deso@posteo.net)         *
  *                                                                         *
  *   This program is free software: you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -144,7 +144,7 @@ namespace opt
       typedef tok::TerminalCreator<Symbols, Tokens>       T;
       typedef tok::TerminalCustomCreator<Symbols, Tokens> TC;
 
-      auto inf0 = tok::RepeatCount<0, -1>();
+      auto inf0 = tok::RepeatCount<0, static_cast<unsigned int>(-1)>();
       auto once = tok::RepeatCount<0, 1>();
 
       // terminal symbols

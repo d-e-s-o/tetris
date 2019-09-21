@@ -1,7 +1,7 @@
 // Scanner.cpp
 
 /***************************************************************************
- *   Copyright (C) 2012 Daniel Mueller (deso@posteo.net)                   *
+ *   Copyright (C) 2012,2019 Daniel Mueller (deso@posteo.net)              *
  *                                                                         *
  *   This program is free software: you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -56,8 +56,8 @@ namespace opt
       typedef tok::TerminalRangeCreator<Symbols, Tokens>  TR;
       typedef tok::TerminalCustomCreator<Symbols, Tokens> TC;
 
-      auto inf0 = tok::RepeatCount<0, -1>();
-      auto inf1 = tok::RepeatCount<1, -1>();
+      auto inf0 = tok::RepeatCount<0, static_cast<unsigned int>(-1)>();
+      auto inf1 = tok::RepeatCount<1, static_cast<unsigned int>(-1)>();
 
       auto bool_space = BTC::T<TEXT(' ')>();
       auto bool_quote = BTC::T<TEXT('"')>();
