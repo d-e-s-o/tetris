@@ -48,7 +48,7 @@ Building
 --------
 
 **tetris** has the following set of dependencies:
-- `g++`
+- `g++` or `clang++`
 - GNU Make
 - `libjpeg` (including headers)
 - `libpng` (including headers)
