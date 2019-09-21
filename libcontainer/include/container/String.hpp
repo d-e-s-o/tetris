@@ -1,7 +1,7 @@
 // String.hpp
 
 /***************************************************************************
- *   Copyright (C) 2012-2014 Daniel Mueller (deso@posteo.net)              *
+ *   Copyright (C) 2012-2014,2019 Daniel Mueller (deso@posteo.net)         *
  *                                                                         *
  *   This program is free software: you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -83,8 +83,8 @@ namespace ctr
     typedef Array<CharT, SlackAllocator<CharT, AllocatorT> > Base;
 
   public:
-    using Base::Iterator;
-    using Base::ConstIterator;
+    using typename Base::Iterator;
+    using typename Base::ConstIterator;
 
     explicit BasicString(AllocatorT allocator = AllocatorT());
     explicit BasicString(CharT character, AllocatorT allocator = AllocatorT());
