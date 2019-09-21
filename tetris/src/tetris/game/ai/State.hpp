@@ -1,7 +1,7 @@
 // State.hpp
 
 /***************************************************************************
- *   Copyright (C) 2013-2014 Daniel Mueller (deso@posteo.net)              *
+ *   Copyright (C) 2013-2014,2019 Daniel Mueller (deso@posteo.net)         *
  *                                                                         *
  *   This program is free software: you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -289,9 +289,9 @@ namespace ttrs
       //       lhs.cost_ == rhs.cost_ && lhs.utility_ > rhs.utility_;
 
       // version 3:
-      return lhs.index_ <  rhs.index_ ||
-             lhs.index_ == rhs.index_ && lhs.cost_ <  rhs.cost_ ||
-             lhs.index_ == rhs.index_ && lhs.cost_ == rhs.cost_ && lhs.utility_ > rhs.utility_;
+      return (lhs.index_ <  rhs.index_) ||
+             (lhs.index_ == rhs.index_ && lhs.cost_ <  rhs.cost_) ||
+             (lhs.index_ == rhs.index_ && lhs.cost_ == rhs.cost_ && lhs.utility_ > rhs.utility_);
     }
   }
 }
