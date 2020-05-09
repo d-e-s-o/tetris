@@ -1,4 +1,5 @@
-LD=g++
+CXX=clang++
+LD=clang++
 CXXFLAGS=-O2 -std=c++0x -DNDEBUG
 #CXXFLAGS=-O0 -ggdb -std=c++0x
 
